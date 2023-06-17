@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/ramses/static/js/main.497edb74.js",
+    "main.js": "/ramses/static/js/main.13957a18.js",
     "static/js/787.79c334f1.chunk.js": "/ramses/static/js/787.79c334f1.chunk.js",
     "index.html": "/ramses/index.html",
-    "main.497edb74.js.map": "/ramses/static/js/main.497edb74.js.map",
+    "main.13957a18.js.map": "/ramses/static/js/main.13957a18.js.map",
     "787.79c334f1.chunk.js.map": "/ramses/static/js/787.79c334f1.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.497edb74.js"
+    "static/js/main.13957a18.js"
   ]
 }
