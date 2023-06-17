@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/ramses/static/js/main.e2287829.js",
+    "static/js/787.79c334f1.chunk.js": "/ramses/static/js/787.79c334f1.chunk.js",
+    "index.html": "/ramses/index.html",
+    "main.e2287829.js.map": "/ramses/static/js/main.e2287829.js.map",
+    "787.79c334f1.chunk.js.map": "/ramses/static/js/787.79c334f1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e2287829.js"
+  ]
+}
