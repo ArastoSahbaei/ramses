@@ -73,26 +73,60 @@ const Result = styled.div`
   text-align: center;
 `;
 
-interface DilutionProps {}
-
-const DilutionCalculator: React.FC<DilutionProps> = () => {
-  const [X, setX] = useState<number>(0);
-  const [Y, setY] = useState<number>(0);
-  const [Z, setZ] = useState<number>(0);
+const DilutionCalculator = () => {
+  const [X, setX] = useState("");
+  const [Y, setY] = useState("");
+  const [Z, setZ] = useState("");
   const [result, setResult] = useState<string | null>(null);
 
+  const handleXChange = (e: any) => {
+    setX(e.target.value);
+  };
+
+  const handleYChange = (e: any) => {
+    setY(e.target.value);
+  };
+
+  const handleZChange = (e: any) => {
+    setZ(e.target.value);
+  };
+
   const calculateDilution = () => {
-    if (X <= 0 || Y <= 0 || Z <= 0) {
-      alert("Alla värden måste vara större än 0");
+    const parsedX = parseFloat(X.replace(",", "."));
+    const parsedY = parseFloat(Y.replace(",", "."));
+    const parsedZ = parseFloat(Z.replace(",", "."));
+
+    if (isNaN(parsedX) || isNaN(parsedY) || isNaN(parsedZ)) {
+      alert("Alla värden måste vara numeriska");
       return;
     }
 
-    const spaddedVolume: number = (X * Z) / Y;
+    const spaddedVolume: number = (parsedX * parsedZ) / parsedY;
     setResult(
-      `Du kommer att behöva späda ut ${X} ml av ditt läkemedel med ${spaddedVolume.toFixed(
+      `Du kommer att behöva späda ut ${parsedX} ml av ditt läkemedel med ${spaddedVolume.toFixed(
         2
-      )} ml natriumklorid för att få en önskad styrka av ${Z} mg av ditt läkemedel.`
+      )} ml natriumklorid för att få en önskad styrka av ${parsedZ} mg av ditt läkemedel.`
     );
+  };
+
+  const handleDecimalInput = (
+    event: React.KeyboardEvent<HTMLInputElement>,
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  ) => {
+    const { key } = event;
+    if (key === "." || key === ",") {
+      event.preventDefault();
+      const input = event.currentTarget;
+      const value = input.value;
+      const selectionStart = input.selectionStart || 0;
+      const selectionEnd = input.selectionEnd || 0;
+      input.value =
+        value.substring(0, selectionStart) +
+        "." +
+        value.substring(selectionEnd, value.length);
+      input.selectionStart = input.selectionEnd = selectionStart + 1;
+      handleChange(event as any);
+    }
   };
 
   return (
@@ -101,25 +135,28 @@ const DilutionCalculator: React.FC<DilutionProps> = () => {
       <Field>
         <Label>Ange okänt läkemedel (X ml):</Label>
         <Input
-          type="number"
+          type="text"
           value={X}
-          onChange={(e) => setX(parseFloat(e.target.value))}
+          onChange={handleXChange}
+          onKeyPress={(e) => handleDecimalInput(e, handleXChange)}
         />
       </Field>
       <Field>
         <Label>Ange styrka av okänt läkemedel (Y mg):</Label>
         <Input
-          type="number"
+          type="text"
           value={Y}
-          onChange={(e) => setY(parseFloat(e.target.value))}
+          onChange={handleYChange}
+          onKeyPress={(e) => handleDecimalInput(e, handleYChange)}
         />
       </Field>
       <Field>
         <Label>Ange önskad läkemedelsstyrka (Z):</Label>
         <Input
-          type="number"
+          type="text"
           value={Z}
-          onChange={(e) => setZ(parseFloat(e.target.value))}
+          onChange={handleZChange}
+          onKeyPress={(e) => handleDecimalInput(e, handleZChange)}
         />
       </Field>
       <Button onClick={calculateDilution}>Beräkna</Button>
