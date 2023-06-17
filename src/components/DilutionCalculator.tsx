@@ -76,55 +76,54 @@ const Result = styled.div`
 interface DilutionProps {}
 
 const DilutionCalculator: React.FC<DilutionProps> = () => {
-  const [c1, setC1] = useState<number>(0);
-  const [v1, setV1] = useState<number>(0);
-  const [c2, setC2] = useState<number>(0);
-  const [result, setResult] = useState<number | null>(null);
+  const [X, setX] = useState<number>(0);
+  const [Y, setY] = useState<number>(0);
+  const [Z, setZ] = useState<number>(0);
+  const [result, setResult] = useState<string | null>(null);
 
   const calculateDilution = () => {
-    if (c1 <= 0 || v1 <= 0 || c2 <= 0) {
+    if (X <= 0 || Y <= 0 || Z <= 0) {
       alert("Alla värden måste vara större än 0");
       return;
     }
 
-    if (c2 > c1) {
-      alert("Slutkoncentrationen kan inte vara högre än startkoncentrationen");
-      return;
-    }
-
-    const v2: number = (c1 * v1) / c2;
-    setResult(v2);
+    const spaddedVolume: number = (X * Z) / Y;
+    setResult(
+      `Du kommer att behöva späda ut ${X} ml av ditt läkemedel med ${spaddedVolume.toFixed(
+        2
+      )} ml natriumklorid för att få en önskad styrka av ${Z} mg av ditt läkemedel.`
+    );
   };
 
   return (
     <Container>
       <Title>Dilution Calculator</Title>
       <Field>
-        <Label>Ursprunglig koncentration (mg/ml):</Label>
+        <Label>Ange okänt läkemedel (X ml):</Label>
         <Input
           type="number"
-          value={c1}
-          onChange={(e) => setC1(parseFloat(e.target.value))}
+          value={X}
+          onChange={(e) => setX(parseFloat(e.target.value))}
         />
       </Field>
       <Field>
-        <Label>Ursprunglig volym (ml):</Label>
+        <Label>Ange styrka av okänt läkemedel (Y mg):</Label>
         <Input
           type="number"
-          value={v1}
-          onChange={(e) => setV1(parseFloat(e.target.value))}
+          value={Y}
+          onChange={(e) => setY(parseFloat(e.target.value))}
         />
       </Field>
       <Field>
-        <Label>Slutlig koncentration (mg/ml):</Label>
+        <Label>Ange önskad läkemedelsstyrka (Z):</Label>
         <Input
           type="number"
-          value={c2}
-          onChange={(e) => setC2(parseFloat(e.target.value))}
+          value={Z}
+          onChange={(e) => setZ(parseFloat(e.target.value))}
         />
       </Field>
       <Button onClick={calculateDilution}>Beräkna</Button>
-      {result !== null && <Result>Slutlig volym: {result} ml</Result>}
+      {result && <Result>{result}</Result>}
     </Container>
   );
 };
