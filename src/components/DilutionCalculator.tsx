@@ -6,12 +6,12 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 50px;
   font-family: Arial, sans-serif;
   max-width: 600px;
   margin: auto;
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
   background-color: #f9f9f9;
 `;
 
@@ -23,8 +23,8 @@ const Title = styled.h1`
 
 const Field = styled.div`
   width: 100%;
-  margin-bottom: 20px;
-  padding: 10px;
+  margin-bottom: 30px;
+  padding: 20px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
