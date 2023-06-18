@@ -16,7 +16,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  color: #007bff;
+  color: #00c281;
   text-align: center;
   margin-bottom: 30px;
 `;
@@ -39,7 +39,7 @@ const Label = styled.label`
 const Input = styled.input`
   width: 100%;
   padding: 10px;
-  border: 2px solid #007bff;
+  border: 2px solid #00c281;
   border-radius: 10px;
   font-size: 18px;
   box-sizing: border-box;
@@ -51,20 +51,20 @@ const Button = styled.button`
   margin-top: 30px;
   font-size: 20px;
   border-radius: 10px;
-  background-color: #007bff;
+  background-color: #00c281;
   color: white;
   border: none;
   cursor: pointer;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #00b32d;
   }
 `;
 
 const Result = styled.div`
   margin-top: 30px;
   font-size: 24px;
-  color: #007bff;
+  color: #00c281;
   padding: 15px;
   background-color: #ffffff;
   border-radius: 10px;
