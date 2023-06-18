@@ -134,7 +134,7 @@ const DilutionCalculator = () => {
     <Container>
       <Title>Dilution Calculator</Title>
       <Field>
-        <Label>Ange okänt läkemedel (ml):</Label>
+        <Label>Volym läkemedel (ml):</Label>
         <Input
           type="text"
           value={X}
@@ -143,7 +143,7 @@ const DilutionCalculator = () => {
         />
       </Field>
       <Field>
-        <Label>Ange styrka av okänt läkemedel (mg/ml):</Label>
+        <Label>Nuvarande koncentration läkemedel (mg/ml):</Label>
         <Input
           type="text"
           value={Y}
@@ -152,7 +152,7 @@ const DilutionCalculator = () => {
         />
       </Field>
       <Field>
-        <Label>Ange önskad läkemedelsstyrka (mg/ml):</Label>
+        <Label>Önskad koncentration läkemedelsstyrka (mg/ml):</Label>
         <Input
           type="text"
           value={Z}
