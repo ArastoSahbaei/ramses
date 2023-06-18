@@ -101,11 +101,12 @@ const DilutionCalculator = () => {
       return;
     }
 
-    const spaddedVolume: number = (parsedX * parsedZ) / parsedY;
+    const totalVolume: number = (parsedX * parsedY) / parsedZ;
+    const diluentVolume: number = totalVolume - parsedX;
     setResult(
-      `Du kommer att behöva späda ut ${parsedX} ml av ditt läkemedel med ${spaddedVolume.toFixed(
+      `Du kommer att behöva späda ut ${parsedX} ml av ditt läkemedel med ${diluentVolume.toFixed(
         2
-      )} ml natriumklorid för att få en önskad styrka av ${parsedZ} mg av ditt läkemedel.`
+      )} ml natriumklorid för att få en önskad styrka av ${parsedZ} mg/ml av ditt läkemedel.`
     );
   };
 
@@ -133,7 +134,7 @@ const DilutionCalculator = () => {
     <Container>
       <Title>Dilution Calculator</Title>
       <Field>
-        <Label>Ange okänt läkemedel (X ml):</Label>
+        <Label>Ange okänt läkemedel (ml):</Label>
         <Input
           type="text"
           value={X}
@@ -142,7 +143,7 @@ const DilutionCalculator = () => {
         />
       </Field>
       <Field>
-        <Label>Ange styrka av okänt läkemedel (Y mg):</Label>
+        <Label>Ange styrka av okänt läkemedel (mg/ml):</Label>
         <Input
           type="text"
           value={Y}
@@ -151,7 +152,7 @@ const DilutionCalculator = () => {
         />
       </Field>
       <Field>
-        <Label>Ange önskad läkemedelsstyrka (Z):</Label>
+        <Label>Ange önskad läkemedelsstyrka (mg/ml):</Label>
         <Input
           type="text"
           value={Z}
