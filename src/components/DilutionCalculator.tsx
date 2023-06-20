@@ -1,79 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-  font-family: Arial, sans-serif;
-  max-width: 600px;
-  margin: auto;
-  border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-  background-color: #f9f9f9;
-`;
-
-const Title = styled.h1`
-  color: #00c281;
-  text-align: center;
-  margin-bottom: 30px;
-`;
-
-const Field = styled.div`
-  width: 100%;
-  margin-bottom: 30px;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-`;
-
-const Label = styled.label`
-  display: block;
-  margin-bottom: 10px;
-  font-size: 18px;
-`;
-
-const Input = styled.input`
-  width: 100%;
-  padding: 10px;
-  border: 2px solid #00c281;
-  border-radius: 10px;
-  font-size: 18px;
-  box-sizing: border-box;
-`;
-
-const Button = styled.button`
-  width: 100%;
-  padding: 15px;
-  margin-top: 30px;
-  font-size: 20px;
-  border-radius: 10px;
-  background-color: #00c281;
-  color: white;
-  border: none;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #00b32d;
-  }
-`;
-
-const Result = styled.div`
-  margin-top: 30px;
-  font-size: 24px;
-  color: #00c281;
-  padding: 15px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  width: 100%;
-  text-align: center;
-`;
-
-const DilutionCalculator = () => {
+export const DilutionCalculator = () => {
   const [X, setX] = useState("");
   const [Y, setY] = useState("");
   const [Z, setZ] = useState("");
@@ -166,4 +94,74 @@ const DilutionCalculator = () => {
   );
 };
 
-export default DilutionCalculator;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  background-color: #f9f9f9;
+`;
+
+const Title = styled.h1`
+  color: #00c281;
+  text-align: center;
+  margin-bottom: 30px;
+`;
+
+const Field = styled.div`
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+`;
+
+const Label = styled.label`
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #00c281;
+  border-radius: 10px;
+  font-size: 18px;
+  box-sizing: border-box;
+`;
+
+const Button = styled.button`
+  width: 100%;
+  padding: 15px;
+  margin-top: 30px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: #00c281;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #00b32d;
+  }
+`;
+
+const Result = styled.div`
+  margin-top: 30px;
+  font-size: 24px;
+  color: #00c281;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  text-align: center;
+`;
