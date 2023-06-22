@@ -1,8 +1,17 @@
-import { createGlobalStyle } from 'styled-components'
-import { fadeInOpacity } from '../animations/fadeInOpacity'
+import { createGlobalStyle, keyframes } from 'styled-components'
 import Roboto from '../fonts/Roboto.ttf'
 import Nunito from '../fonts/Nunito.ttf'
-
+export const rotateAnimation = keyframes`
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+`;
 export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -10,7 +19,12 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body, html {
-  animation: ${fadeInOpacity} 500ms ease-in;
+  background: radial-gradient(
+    circle at 50% 50%,
+    #00c281, #00c7d7
+  );
+  background-size: 200% 200%;
+  animation: ${rotateAnimation} 180s linear infinite;
   }
   p, span, h1, h2, h3, h4, h5, h6 {
     font-family: Roboto, serif;
@@ -31,3 +45,4 @@ export const GlobalStyle = createGlobalStyle`
     src: url(${Nunito}) format('truetype');
   }
 `
+

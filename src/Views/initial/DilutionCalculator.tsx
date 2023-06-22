@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { footerHeight } from "../../shared/constants";
+import { fadeInOpacity } from "../../shared/animations";
 
 export const DilutionCalculator: React.FC = () => {
   const [X, setX] = useState("");
@@ -101,9 +102,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - ${footerHeight}px);
-  background-color: #142850;
   align-items: center;
   justify-content: center;
+  animation: ${fadeInOpacity} 400ms ease-in;
 `;
 const Container = styled.div`
   display: flex;
@@ -115,7 +116,7 @@ const Container = styled.div`
   max-width: 600px;
   margin: auto;
   border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.4);
   background-color: #f9f9f9;
   padding: 50px;
 `;
