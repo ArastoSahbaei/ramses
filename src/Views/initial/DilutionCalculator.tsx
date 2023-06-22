@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { footerHeight } from "../../shared/constants";
 
-export const DilutionCalculator = () => {
+export const DilutionCalculator: React.FC = () => {
   const [X, setX] = useState("");
   const [Y, setY] = useState("");
   const [Z, setZ] = useState("");
@@ -59,41 +60,51 @@ export const DilutionCalculator = () => {
   };
 
   return (
-    <Container>
-      <Title>Dilution Calculator</Title>
-      <Field>
-        <Label>Volym läkemedel (ml):</Label>
-        <Input
-          type="text"
-          value={X}
-          onChange={handleXChange}
-          onKeyPress={(e) => handleDecimalInput(e, handleXChange)}
-        />
-      </Field>
-      <Field>
-        <Label>Nuvarande koncentration läkemedel (mg/ml):</Label>
-        <Input
-          type="text"
-          value={Y}
-          onChange={handleYChange}
-          onKeyPress={(e) => handleDecimalInput(e, handleYChange)}
-        />
-      </Field>
-      <Field>
-        <Label>Önskad koncentration läkemedelsstyrka (mg/ml):</Label>
-        <Input
-          type="text"
-          value={Z}
-          onChange={handleZChange}
-          onKeyPress={(e) => handleDecimalInput(e, handleZChange)}
-        />
-      </Field>
-      <Button onClick={calculateDilution}>Beräkna</Button>
-      {result && <Result>{result}</Result>}
-    </Container>
+    <Wrapper>
+      <Container>
+        <Title>Dilution Calculator</Title>
+        <Field>
+          <Label>Volym läkemedel (ml):</Label>
+          <Input
+            type="text"
+            value={X}
+            onChange={handleXChange}
+            onKeyPress={(e) => handleDecimalInput(e, handleXChange)}
+          />
+        </Field>
+        <Field>
+          <Label>Nuvarande koncentration läkemedel (mg/ml):</Label>
+          <Input
+            type="text"
+            value={Y}
+            onChange={handleYChange}
+            onKeyPress={(e) => handleDecimalInput(e, handleYChange)}
+          />
+        </Field>
+        <Field>
+          <Label>Önskad koncentration läkemedelsstyrka (mg/ml):</Label>
+          <Input
+            type="text"
+            value={Z}
+            onChange={handleZChange}
+            onKeyPress={(e) => handleDecimalInput(e, handleZChange)}
+          />
+        </Field>
+        <Button onClick={calculateDilution}>Beräkna</Button>
+        {result && <Result>{result}</Result>}
+      </Container>
+    </Wrapper>
   );
 };
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - ${footerHeight}px);
+  background-color: #142850;
+  align-items: center;
+  justify-content: center;
+`;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -106,6 +117,7 @@ const Container = styled.div`
   border-radius: 15px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
   background-color: #f9f9f9;
+  padding: 50px;
 `;
 
 const Title = styled.h1`
@@ -113,7 +125,6 @@ const Title = styled.h1`
   text-align: center;
   margin-bottom: 30px;
 `;
-
 const Field = styled.div`
   width: 100%;
   margin-bottom: 30px;
@@ -122,13 +133,11 @@ const Field = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 `;
-
 const Label = styled.label`
   display: block;
   margin-bottom: 10px;
   font-size: 18px;
 `;
-
 const Input = styled.input`
   width: 100%;
   padding: 10px;
@@ -137,7 +146,6 @@ const Input = styled.input`
   font-size: 18px;
   box-sizing: border-box;
 `;
-
 const Button = styled.button`
   width: 100%;
   padding: 15px;
@@ -148,12 +156,10 @@ const Button = styled.button`
   color: white;
   border: none;
   cursor: pointer;
-
   &:hover {
     background-color: #00b32d;
   }
 `;
-
 const Result = styled.div`
   margin-top: 30px;
   font-size: 24px;

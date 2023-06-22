@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import Path from "../routes/Path";
+import { footerHeight } from "../shared/constants";
 
 export const Footer: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <Wrapper>
       <EmojiWrapper>
@@ -22,7 +26,9 @@ export const Footer: React.FC = () => {
       <ContactText>
         Har du förslag på hur vi kan förbättra vår hemsida eller önskar du komma
         i kontakt med oss?
-        <ContactLink>Klicka här.</ContactLink>
+        <ContactLink onClick={() => navigate(Path.contactView)}>
+          Klicka här.
+        </ContactLink>
       </ContactText>
     </Wrapper>
   );
@@ -30,12 +36,12 @@ export const Footer: React.FC = () => {
 
 const Wrapper = styled.div`
   background-color: #f8f8f8;
-  padding: 20px;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.4);
+  height: ${footerHeight}px;
 `;
 
 const Text = styled.p`

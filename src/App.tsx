@@ -1,24 +1,16 @@
 import styled from "styled-components";
-import { DilutionCalculator } from "./components/DilutionCalculator";
 import { Footer } from "./components/Footer";
 import { GlobalStyle } from "./shared/styles/GlobalStyles";
+import { AppRoutes } from "./routes";
+import { footerHeight } from "./shared/constants";
 
 export const App = () => {
   return (
     <>
       <GlobalStyle />
-      <CenteredDiv>
-        <DilutionCalculator />
+      <AppRoutes>
         <Footer />
-      </CenteredDiv>
+      </AppRoutes>
     </>
   );
 };
-
-const CenteredDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
